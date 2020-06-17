@@ -1,0 +1,5 @@
+language: swift
+xcode_project: SimpleApp.xcodeproj # path to your xcodeproj folder
+xcode_scheme: SimpleAppTests
+osx_image: xcode11.5
+xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
