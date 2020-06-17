@@ -17,12 +17,25 @@ struct ContentView: View {
             Form {
                 Section {
                     TextField("Height (cm)", text: $viewModel.height)
+                        .accessibility(identifier: "HeightField")
+
                     TextField("Weight (kg)", text: $viewModel.weight)
-                    Button("Calculate", action: viewModel.calculation)
+                        .accessibility(identifier: "WeightField")
+
+                    Button("Calculate", action: {
+                        self.viewModel.calculation()
+                        self.dismissKeyboard()
+                    })
                         .frame(maxWidth: .infinity)
-                    Button("Clear", action: viewModel.clear)
+                        .accessibility(identifier: "CalculateButton")
+
+                    Button("Clear", action: {
+                        self.viewModel.clear()
+                        self.dismissKeyboard()
+                    })
                         .frame(maxWidth: .infinity)
                         .foregroundColor(.red)
+                        .accessibility(identifier: "ClearButton")
                 }
 
                 Section {
@@ -45,6 +58,7 @@ struct ContentView: View {
             }
             .navigationBarTitle("Health Calculations", displayMode: .inline)
         }
+        .accessibility(identifier: "ContentView")
     }
 
 }
