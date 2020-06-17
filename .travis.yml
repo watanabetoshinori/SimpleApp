@@ -1,5 +1,9 @@
 language: swift
-xcode_project: SimpleApp.xcodeproj # path to your xcodeproj folder
-xcode_scheme: SimpleApp
 osx_image: xcode11.5
-xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
+# xcode_project: SimpleApp.xcodeproj
+# xcode_scheme: SimpleApp
+# xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
+install:
+  - bundle install
+script:
+  - fastlane tests
