@@ -20,6 +20,17 @@ class ContentViewModel: ObservableObject {
 
     @Published var diffWeight: String = "-"
 
+    var isValid: Bool {
+        guard let rawHeight = Double(height),
+            let rawWeight = Double(weight),
+            rawHeight > 0.0,
+            rawWeight > 0.0 else {
+            return false
+        }
+
+        return true
+    }
+
     func calculation() {
         let rawHeight = Double(height) ?? 0.0
         let rawWeight = Double(weight) ?? 0.0

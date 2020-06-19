@@ -26,6 +26,7 @@ struct ContentView: View {
                         self.viewModel.calculation()
                         self.dismissKeyboard()
                     })
+                        .disabled(!viewModel.isValid)
                         .frame(maxWidth: .infinity)
                         .accessibility(identifier: "CalculateButton")
 
